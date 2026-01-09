@@ -23,7 +23,7 @@ public class main {
         final String MORADO = "\u001B[35m";
         final String CIAN = "\u001B[36m";
         final String BLANCO = "\u001B[37m";
-
+//aaaaaaaaaaaa
 
         // barrita de carga
         String[] circulo = {
@@ -32,8 +32,6 @@ public class main {
                 "◕",
                 "●"
         };
-
-        //aaaaaaaaaaaa
 
         System.out.print(NEGRITA + VERDE + "Cargando ");
 
