@@ -25,6 +25,8 @@ public class main {
         final String BLANCO = "\u001B[37m";
 
 
+        // OOHHHHHHHHHHHH!!!
+
         // barrita de carga
         String[] circulo = {
                 "◔",
