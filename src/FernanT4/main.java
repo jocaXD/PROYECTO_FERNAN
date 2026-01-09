@@ -24,8 +24,7 @@ public class main {
         final String CIAN = "\u001B[36m";
         final String BLANCO = "\u001B[37m";
 
-
-        // OOHHHHHHHHHHHH!!!
+        //OOOHHHHHH!!!
 
         // barrita de carga
         String[] circulo = {
