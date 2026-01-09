@@ -23,7 +23,7 @@ public class main {
         final String MORADO = "\u001B[35m";
         final String CIAN = "\u001B[36m";
         final String BLANCO = "\u001B[37m";
-
+//buiwgkfigfw
 
         // barrita de carga
         String[] circulo = {
