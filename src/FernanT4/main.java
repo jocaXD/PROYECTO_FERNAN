@@ -12,6 +12,7 @@ public class main {
 
 
     static void main(String[] args) {
+        //PRUEBA PARA ESTAR CONECTADOS
 
         final String RESET = "\u001B[0m";
         final String ROJO = "\u001B[31m";
