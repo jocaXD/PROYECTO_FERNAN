@@ -123,7 +123,7 @@ public class main {
         //=======DATOS EVENTOS========
         //NOMBRE
 
-        String[] evNombre = {"¡Bolos con famosos!", "Charla empresarial con alcalde de Jaén", "Partido Fútblo sala Jaén", "Viaje a Egipto solo para habitantes de la provincia de Jaén", "Ceremonia de la nueva biblioteca en Alcalá", "Quedada en cafetería para hacer nuevos amigos", "Paella gigante en VidaPark Martos", "Fiesta del queso en Alcaudete", "", "", ""};
+        String[] evNombre = {"¡Bolos con famosos!", "Charla empresarial con alcalde de Jaén", "Partido Fútblo sala Jaén", "Viaje a Egipto solo para habitantes de la provincia de Jaén", "Ceremonia de la nueva biblioteca en Alcalá", "Quedada en cafetería para hacer nuevos amigos", "Paella gigante en VidaPark Martos", "Fiesta del queso en Alcaudete" , "", "", ""};
 
 
         //DESCIPCION
@@ -200,7 +200,7 @@ public class main {
             int valorClave = pedirClave(passwUsers, valorUsuario);
             if (valorClave == 5) {
                 bloqueoUsers[valorUsuario] = true;
-                System.out.println("La cuenta " + nombreUsers[valorUsuario] + " se ha bloqueado, contacta con un administrador para desbloquearla");
+                System.out.println(ROJO + "La cuenta " + nombreUsers[valorUsuario] + " se ha bloqueado, contacta con un administrador para desbloquearla" + RESET);
             }
 
 
@@ -222,7 +222,7 @@ public class main {
                             case 1:
                                 opcionPanelAdmin = panelDeControl(bloqueoUsers, nombreUsers, numeroDeUsersCreados);
                                 if (opcionPanelAdmin != numeroDeUsersCreados + 1) {
-                                    System.out.println("¿Que quiere hacer?");
+                                    System.out.println(NEGRITA + "¿Que quiere hacer?" + RESET);
                                     System.out.println("1- Bloquear");
                                     System.out.println("2- Desbloquear");
                                     if (Integer.parseInt(s.nextLine()) == 1) {
@@ -284,33 +284,33 @@ public class main {
                                         //APARTADO DE CREAR EVENTOS
                                         if (!eventosActivos[contadorEventosCreados + 1]) {
                                             eventosActivos[contadorEventosCreados + 1] = true;
-                                            System.out.println("Escribe el nombre que tendrá el evento:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe el nombre que tendrá el evento:" + RESET);
                                             evNombre[contadorEventosCreados + 1] = s.nextLine();
-                                            System.out.println("Escribe la descipción que tendrá el evento:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la descipción que tendrá el evento:"+ RESET);
                                             evDescripcion[contadorEventosCreados + 1] = s.nextLine();
-                                            System.out.println("Escribe las categorías que tendrá el evento:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe las categorías que tendrá el evento:"+ RESET);
                                             evDescripcion[contadorEventosCreados + 1] = s.nextLine();
-                                            System.out.println("Escribe la fecha que tendrá el evento:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la fecha que tendrá el evento:"+ RESET);
                                             evFecha[contadorEventosCreados + 1] = s.nextLine();
-                                            System.out.println("Escribe la hora en la que empezará:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la hora en la que empezará:"+ RESET);
                                             evHora[contadorEventosCreados + 1] = s.nextLine();
-                                            System.out.println("Escribe el aforo máximo que tendrá el evento:");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe el aforo máximo que tendrá el evento:"+ RESET);
                                             evAforo[contadorEventosCreados + 1] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe la descripción de la entrada premium");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada premium"+ RESET);
                                             descripcionesEntradasEventos[contadorEventosCreados + 1][0] = s.nextLine();
-                                            System.out.println("Escribe la descripción de la entrada semipremium");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada semipremium"+ RESET);
                                             descripcionesEntradasEventos[contadorEventosCreados + 1][1] = s.nextLine();
-                                            System.out.println("Escribe la descripción de la entrada normal");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada normal"+ RESET);
                                             descripcionesEntradasEventos[contadorEventosCreados + 1][2] = s.nextLine();
-                                            System.out.println("Escribe el precio de la entrada premium");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada premium"+ RESET);
                                             evEntradasTodosLosPrecios[contadorEventosCreados + 1][0] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe el precio de la entrada semipremium");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada semipremium"+ RESET);
                                             evEntradasTodosLosPrecios[contadorEventosCreados + 1][1] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe el precio de la entrada normal");
+                                            System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada normal"+ RESET);
                                             evEntradasTodosLosPrecios[contadorEventosCreados + 1][2] = Integer.parseInt(s.nextLine());
                                             contadorEventosCreados++;
                                         } else {
-                                            System.out.println("No se puede crear el evento");
+                                            System.out.println(ROJO + "No se puede crear el evento" + RESET);
                                         }
                                         break;
                                     case 2:
@@ -327,7 +327,7 @@ public class main {
                                         opcionBorrar = Integer.parseInt(s.nextLine());
                                         if (idEventosPorOrganizadores[opcionBorrar] == valorUsuario) {
                                             eventosActivos[opcionBorrar] = false;
-                                        } else System.out.println("No se puede borrar el evento");
+                                        } else System.out.println(ROJO + "No se puede borrar el evento" + RESET);
                                         break;
                                     case 3:
 
@@ -342,29 +342,29 @@ public class main {
                                         int opcionEditarEvento = Integer.parseInt(s.nextLine());
 
                                         if (idEventosPorOrganizadores[opcionEditarEvento] == valorUsuario) {
-                                            System.out.println("Escribe el nombre que tendrá el evento:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe el nombre que tendrá el evento:" + RESET);
                                             evNombre[opcionEditarEvento] = s.nextLine();
-                                            System.out.println("Escribe la descipción que tendrá el evento:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la descipción que tendrá el evento:" + RESET);
                                             evDescripcion[opcionEditarEvento] = s.nextLine();
-                                            System.out.println("Escribe las categorías que tendrá el evento:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe las categorías que tendrá el evento:" + RESET);
                                             evDescripcion[opcionEditarEvento] = s.nextLine();
-                                            System.out.println("Escribe la fecha que tendrá el evento:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la fecha que tendrá el evento:" + RESET);
                                             evFecha[opcionEditarEvento] = s.nextLine();
-                                            System.out.println("Escribe la hora en la que empezará:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la hora en la que empezará:" + RESET);
                                             evHora[opcionEditarEvento] = s.nextLine();
-                                            System.out.println("Escribe el aforo máximo que tendrá el evento:");
+                                            System.out.println(MORADO + NEGRITA + "Escribe el aforo máximo que tendrá el evento:" + RESET);
                                             evAforo[opcionEditarEvento] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe la descripción de la entrada premium");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la descripción de la entrada premium" + RESET);
                                             descripcionesEntradasEventos[opcionEditarEvento][0] = s.nextLine();
-                                            System.out.println("Escribe la descripción de la entrada semipremium");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la descripción de la entrada semipremium" + RESET);
                                             descripcionesEntradasEventos[opcionEditarEvento][1] = s.nextLine();
-                                            System.out.println("Escribe la descripción de la entrada normal");
+                                            System.out.println(MORADO + NEGRITA + "Escribe la descripción de la entrada normal" + RESET);
                                             descripcionesEntradasEventos[opcionEditarEvento][2] = s.nextLine();
-                                            System.out.println("Escribe el precio de la entrada premium");
+                                            System.out.println(MORADO + NEGRITA + "Escribe el precio de la entrada premium" + RESET);
                                             evEntradasTodosLosPrecios[opcionEditarEvento][0] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe el precio de la entrada semipremium");
+                                            System.out.println(MORADO + NEGRITA + "Escribe el precio de la entrada semipremium" + RESET);
                                             evEntradasTodosLosPrecios[opcionEditarEvento][1] = Integer.parseInt(s.nextLine());
-                                            System.out.println("Escribe el precio de la entrada normal");
+                                            System.out.println(MORADO + NEGRITA + "Escribe el precio de la entrada normal" + RESET);
                                             evEntradasTodosLosPrecios[opcionEditarEvento][2] = Integer.parseInt(s.nextLine());
 
                                         }
@@ -378,10 +378,10 @@ public class main {
                                 opcionCambioOrg = configuracionOrg();
                                 break;
                             case 4:
-                                System.out.println("Cerrando sesión...");
+                                System.out.println(BLANCO + "Cerrando sesión..." + RESET);
                                 break;
                             default:
-                                System.out.println("Opción no válida.");
+                                System.out.println(ROJO + "Opción no válida." + RESET);
                         }
 
                         switch (opcionCarteraDigitalOrg) {
@@ -398,7 +398,7 @@ public class main {
                             case 3:
                                 break;
                             default:
-                                System.out.println("Opción no válida.");
+                                System.out.println(ROJO + "Opción no válida." + RESET);
                         }
 
                         if (opcionPanelOrg == 1) {
@@ -419,7 +419,7 @@ public class main {
                             System.out.println("Escribe la contraseña que desees");
                             passwUsers[1] = s.nextLine();
                         } else if (opcionCambioOrg == 0) {
-                        } else System.out.println("IRRECONOCIBLE");
+                        } else System.out.println(ROJO + "IRRECONOCIBLE" + RESET);
 
                         System.out.println();
                     } while (opcionMenuOrg != 4);
@@ -466,7 +466,7 @@ public class main {
                                 System.out.println("Cerrando sesión...");
                                 break;
                             default:
-                                System.out.println("Opción no válida.");
+                                System.out.println(ROJO + "Opción no válida." + RESET);
                         }
 
                         switch (opcionCarteraDigitalUsers) {
@@ -481,7 +481,7 @@ public class main {
                                 opcionCarteraDigitalUsers = 0;
                                 break;
                             default:
-                                System.out.println("Opción no válida...");
+                                System.out.println(ROJO + "Opción no válida..." + RESET);
                         }
 
                     } while (opcionMenuUsers != 6);

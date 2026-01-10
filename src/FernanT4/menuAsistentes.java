@@ -10,6 +10,7 @@ public class menuAsistentes {
     public static final String RESET = "\u001B[0m";
     public static final String GRIS = "\u001B[90m";
     public static final String AZUL = "\u001B[34m";
+    public static final String NEGRITA = "\u001B[1m";
 
     // ======== LISTA DE AMIGOS REFERIDOS ========
     static String amigosReferidos = "";  // Ejemplo: "correo1\ncorreo2\ncorreo3\n"
@@ -251,11 +252,11 @@ public class menuAsistentes {
     }
 
     public static int comprarEntrada(){
-        System.out.println("--Selecciona el tipo de entrada que quieres comprar--");
-        System.out.println("1- Entrada premium");
+        System.out.println(AZUL + NEGRITA + "--Selecciona el tipo de entrada que quieres comprar--" + RESET);
+        System.out.println(AZUL + "1- Entrada premium");
         System.out.println("2- Entrada semipremium");
-        System.out.println("3- Entrada normal");
-        System.out.println("4- Salir");
+        System.out.println("3- Entrada normal" + RESET);
+        System.out.println(GRIS + "4- Salir" + RESET);
         return Integer.parseInt(s.nextLine());
     }
 
