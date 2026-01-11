@@ -263,6 +263,23 @@ public class main {
                                 break;
                             case 3:
                                 opcionCarteraDigitalAdmin = menuCarteraDigitalAdmin(dineroUsers[valorUsuario]);
+
+                                switch (opcionCarteraDigitalAdmin) {
+                                    case 0:
+                                        break;
+                                    case 1:
+                                        dineroUsers[valorUsuario] = anadirSaldoOrg(dineroUsers[valorUsuario]);
+                                        opcionCarteraDigitalAdmin = 0;
+                                        break;
+                                    case 2:
+                                        dineroUsers[valorUsuario] = retirarSaldoOrg(dineroUsers[valorUsuario]);
+                                        opcionCarteraDigitalAdmin = 0;
+                                        break;
+                                    case 3:
+                                        break;
+                                    default:
+                                        System.out.println(ROJO + "Opción no válida." + RESET);
+                                }
                                 break;
                             case 4:
                                 opcionCambioAdmin = configuracionAdmin();
@@ -427,17 +444,6 @@ public class main {
                                 break;
                             default:
                                 System.out.println(ROJO + "Opción no válida." + RESET);
-                        }
-
-                        if (opcionPanelOrg == 1) {
-                            cambiarEstadoUsuariosTexto();
-                            int opcion2 = s.nextInt();
-                            if (opcion2 == 1) {
-                                bloqueoUsers[1] = true;
-                            }
-                            if (opcion2 == 2) {
-                                bloqueoUsers[1] = false;
-                            }
                         }
 
                         if (opcionCambioOrg == 1) {
