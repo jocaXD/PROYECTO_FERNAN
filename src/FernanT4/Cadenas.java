@@ -2,11 +2,11 @@ package FernanT4;
 
 public class Cadenas {
 
-    public static boolean contrasenasIguales(String[] c) {
-        if (c == null || c.length < 2) return false;
+    public static boolean contrasenasIguales(String c, String[] contrasenasUsuarios) {
+        if (c == null || c.length() < 2) return false;
 
-        for (int i = 1; i < c.length; i++) {
-            if (c[i] == null || !c[i].equals(c[0])) {
+        for (int i = 1; i < contrasenasUsuarios.length; i++) {
+            if (c == null || contrasenasUsuarios[i].equals(c)) {
                 return false;
             }
         }
@@ -41,8 +41,8 @@ public class Cadenas {
         return l >= min && l <= max;
     }
 
-    public static boolean protocoloContrasenas(String[] c, int min, int max) {
-        if (contrasenasIguales(c) && contrasenaFuerte(c[0]) && longitudValida(c[0], min, max)) {
+    public static boolean protocoloContrasenas(String c, int min, int max, String[] contrasenasUsuarios) {
+        if (contrasenasIguales(c,contrasenasUsuarios) && contrasenaFuerte(c) && longitudValida(c, min, max)) {
             return true;
         } else {
             return false;

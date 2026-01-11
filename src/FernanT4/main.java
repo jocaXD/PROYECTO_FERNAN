@@ -6,6 +6,7 @@ import static FernanT4.menuAdmin.*;
 import static FernanT4.menuOrganizador.*;
 import static FernanT4.logins.*;
 import static FernanT4.menuAsistentes.*;
+import static FernanT4.Cadenas.*;
 
 
 public class main {
@@ -170,7 +171,6 @@ public class main {
 
 
         while (1 == 1) {
-
             boolean usuarioActiv = false;
             //RECONOCER EL USUARIO
             do {
@@ -185,12 +185,18 @@ public class main {
                     if (valorUsuario == -1) {
                         existeUsers[numeroDeUsersCreados + 1] = true;
                         System.out.println("¿Como se llamará el nuevo usuario?");
-                        nombreUsers[numeroDeUsersCreados + 1] = s.nextLine();
-                        if (definirTipoDeUsuario() == 1) {
-                            tiposDeUsers[numeroDeUsersCreados + 1] = 1;
-                        } else {
-                            tiposDeUsers[numeroDeUsersCreados + 1] = 0;
-                        }
+                        String nombre = s.nextLine();
+                        System.out.println("Escribe la contraseña que desees añadir");
+                        String contrasena = s.nextLine();
+
+                        if (protocoloContrasenas(contrasena,8,8,passwUsers)){
+                            nombreUsers[numeroDeUsersCreados + 1] = s.nextLine();
+                            if (definirTipoDeUsuario() == 1) {
+                                tiposDeUsers[numeroDeUsersCreados + 1] = 1;
+                            } else {
+                                tiposDeUsers[numeroDeUsersCreados + 1] = 0;
+                            }
+                        }else System.out.println("Tu contraseña no es aceptada por el protocolo de seguridad");
                     } else {
                         System.out.println("No se ha añadido el usuario");
                     }
