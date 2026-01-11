@@ -178,9 +178,11 @@ public class main {
                 valorUsuario = reconocerUsuario(nombreUsers);
 
                 //AQUI ABAJO ES EL FACTOR EN DOS PASOS
-                if (valorUsuario >= 0 & FactorDosPasos()) {
-                    usuarioActiv = true;
-                    System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
+                if (valorUsuario >= 0) {
+                    if (FactorDosPasos()){
+                        usuarioActiv = true;
+                        System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
+                    }
                 } else {
                     if (valorUsuario == -1) {
                         existeUsers[numeroDeUsersCreados + 1] = true;
@@ -189,6 +191,7 @@ public class main {
                         System.out.println("Escribe la contraseña que desees añadir");
                         String contrasena = s.nextLine();
                         if (mandarToken()){
+                            System.out.println("Verificación por token exitosa");
                             if (protocoloContrasenas(contrasena,8,30,passwUsers)){
                                 nombreUsers[numeroDeUsersCreados + 1] = nombre;
                                 passwUsers[numeroDeUsersCreados + 1] = contrasena;
