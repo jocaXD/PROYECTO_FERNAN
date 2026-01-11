@@ -9,27 +9,7 @@ public class logins {
     public static final String GRIS = "\u001B[90m";
     public static final String NARANJA = "\u001B[38;5;208m";
 
-    public static int loginUsuario(String usuario, boolean[] lockUsers, String[] nombreUsers) {
-        if (usuario.equals(nombreUsers[0])) {
-            if (!lockUsers[0]) return 1;
-            System.out.println(GRIS + "El usuario admin está bloqueado" + RESET);
-            return 5;
-        } else if (usuario.equals(nombreUsers[1])) {
-            if (!lockUsers[1]) return 2;
-            System.out.println(GRIS + "El usuario organizador está bloqueado" + RESET);
-            return 5;
-        } else if (usuario.equals(nombreUsers[2])) {
-            if (!lockUsers[2]) return 3;
-            System.out.println(GRIS + "El usuario usuario1 está bloqueado" + RESET);
-            return 5;
-        } else if (usuario.equals(nombreUsers[3])) {
-            if (!lockUsers[3]) return 4;
-            System.out.println(GRIS + "El usuario usuario2 está bloqueado" + RESET);
-            return 5;
-        } else {
-            return 6;
-        }
-    }
+
 
     public static int pedirClave(String[] passUsers, int valorUsuario) {
         Scanner s = new Scanner(System.in);

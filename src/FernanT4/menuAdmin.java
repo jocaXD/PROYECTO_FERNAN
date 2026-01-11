@@ -187,16 +187,12 @@ public class menuAdmin {
         System.out.println(GRIS + "=== PANEL DE CONTROL ===" + RESET);
 
         for (int i = 0; i < numUsersCreados; i++) {
+            System.out.println(i + " - " + nomUsers[i]);
             if (usersBlock[i]) System.out.print(NARANJA + "   BLOQUEADO \n" + RESET);
             else System.out.print(NARANJA + "   NO BLOQUEADO \n" + RESET);
         }
 
-
-        System.out.println(GRIS + "----¿Que quieres hacer?----" + RESET);
-        for (int i = 0; i < nomUsers.length; i++) {
-            System.out.println(GRIS + "-1.Seleccionar a " + NARANJA + nomUsers[i] + RESET);
-        }
-        System.out.println(GRIS + "- " + numUsersCreados +1 + "Salir" + RESET);
+        System.out.println(GRIS + numUsersCreados +" - " + "Salir" + RESET);
 
         int opcionPanel = s.nextInt();
         return opcionPanel;

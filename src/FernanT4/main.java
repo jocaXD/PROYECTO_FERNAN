@@ -176,7 +176,7 @@ public class main {
                 System.out.println(NEGRITA + AZUL + "Escribe el usuario:" + RESET);
                 valorUsuario = reconocerUsuario(nombreUsers);
 
-                if (valorUsuario >= 0 & FactorDosPasos()) {
+                if (valorUsuario >= 0) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
                 } else {
@@ -219,13 +219,13 @@ public class main {
                         switch (opcionMenuAdmin) {
                             case 1:
                                 opcionPanelAdmin = panelDeControl(bloqueoUsers, nombreUsers, numeroDeUsersCreados);
-                                if (opcionPanelAdmin != numeroDeUsersCreados + 1) {
+                                if (opcionPanelAdmin != numeroDeUsersCreados) {
                                     System.out.println(NEGRITA + "¿Que quiere hacer?" + RESET);
                                     System.out.println("1- Bloquear");
                                     System.out.println("2- Desbloquear");
                                     if (Integer.parseInt(s.nextLine()) == 1) {
-                                        bloqueoUsers[opcionCambioAdmin] = false;
-                                    } else bloqueoUsers[opcionCambioAdmin] = true;
+                                        bloqueoUsers[opcionCambioAdmin] = true;
+                                    } else bloqueoUsers[opcionCambioAdmin] = false;
                                 }
                                 break;
                             case 2:
