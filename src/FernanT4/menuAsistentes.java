@@ -218,19 +218,21 @@ public class menuAsistentes {
         int opcion;
         int[] opcionesARetornar = new int[2];
         do {
-            System.out.println("Escribe el numero con el que quieres que quieres ver los datos:");
+            System.out.println("Escribe el numero con el que quieres ver los datos:");
             opcion = Integer.parseInt(s.nextLine());
-            mostrarInformacionEventos(nombresEv,descEv,descripcionEntradas,categoria[opcion],fecha[opcion],hora[opcion],opcion,aforoMaximo[opcion],inscritos[opcion]);
-            int opcionDeEntrada = comprarEntrada();
-            if (opcionDeEntrada==1 | opcionDeEntrada==2 | opcionDeEntrada==3){
-                opcionesARetornar[0] = opcion;
-                opcionesARetornar[1] = opcionDeEntrada;
-                return opcionesARetornar;
-            }else{
-                opcionesARetornar[0] = -1;
-                opcionesARetornar[1] = -1;
-                return opcionesARetornar;
-            }
+            if (opcion <= eventosCreados){
+                mostrarInformacionEventos(nombresEv,descEv,descripcionEntradas,categoria[opcion],fecha[opcion],hora[opcion],opcion,aforoMaximo[opcion],inscritos[opcion]);
+                int opcionDeEntrada = comprarEntrada();
+                if (opcionDeEntrada==1 | opcionDeEntrada==2 | opcionDeEntrada==3){
+                    opcionesARetornar[0] = opcion;
+                    opcionesARetornar[1] = opcionDeEntrada;
+                    return opcionesARetornar;
+                }else{
+                    opcionesARetornar[0] = -1;
+                    opcionesARetornar[1] = -1;
+                    return opcionesARetornar;
+                }
+            }else return opcionesARetornar;
         }while(opcion<eventosCreados);
     }
 
@@ -244,7 +246,6 @@ public class menuAsistentes {
                 System.out.println(i + " - " + nombresEventos[i]);
             }else contador++;
         }
-
         if (contador==0) System.out.println("--No te has unido a ningún evento--");
         else {
 

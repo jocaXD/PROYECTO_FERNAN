@@ -12,7 +12,6 @@ public class main {
 
 
     static void main(String[] args) {
-        //PRUEBA PARA ESTAR CONECTADOS
 
         final String RESET = "\u001B[0m";
         final String ROJO = "\u001B[31m";
@@ -177,7 +176,7 @@ public class main {
                 System.out.println(NEGRITA + AZUL + "Escribe el usuario:" + RESET);
                 valorUsuario = reconocerUsuario(nombreUsers);
 
-                if (valorUsuario > 0) {
+                if (valorUsuario >= 0) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
                 } else {
@@ -202,7 +201,6 @@ public class main {
                 bloqueoUsers[valorUsuario] = true;
                 System.out.println(ROJO + "La cuenta " + nombreUsers[valorUsuario] + " se ha bloqueado, contacta con un administrador para desbloquearla" + RESET);
             }
-
 
             //MENU DE LOS DIFERENTES USUARIOS
             switch (tiposDeUsers[valorUsuario]) {
