@@ -109,6 +109,7 @@ public class logins {
 </html>
 """;
 
+        cuerpo = cuerpo.replace("{{CODIGO}}", codigo);
 
         enviarConGMail(
                 "peccicarrilloalejandro@gmail.com",
