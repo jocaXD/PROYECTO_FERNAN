@@ -217,6 +217,9 @@ public class menuAsistentes {
 
         int opcion;
         int[] opcionesARetornar = new int[2];
+        opcionesARetornar[0] = -1;
+        opcionesARetornar[1] = -1;
+
         do {
             System.out.println("Escribe el numero con el que quieres ver los datos:");
             opcion = Integer.parseInt(s.nextLine());
@@ -228,8 +231,6 @@ public class menuAsistentes {
                     opcionesARetornar[1] = opcionDeEntrada;
                     return opcionesARetornar;
                 }else{
-                    opcionesARetornar[0] = -1;
-                    opcionesARetornar[1] = -1;
                     return opcionesARetornar;
                 }
             }else return opcionesARetornar;
