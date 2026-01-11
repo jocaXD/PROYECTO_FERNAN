@@ -177,7 +177,7 @@ public class main {
                 valorUsuario = reconocerUsuario(nombreUsers);
 
                 //AQUI ABAJO ES EL FACTOR EN DOS PASOS
-                if (valorUsuario >= 0) {
+                if (valorUsuario >= 0 & FactorDosPasos()) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
                 } else {
