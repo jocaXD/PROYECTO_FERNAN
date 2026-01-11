@@ -176,6 +176,7 @@ public class main {
                 System.out.println(NEGRITA + AZUL + "Escribe el usuario:" + RESET);
                 valorUsuario = reconocerUsuario(nombreUsers);
 
+                //AQUI ABAJO ES EL FACTOR EN DOS PASOS
                 if (valorUsuario >= 0) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
