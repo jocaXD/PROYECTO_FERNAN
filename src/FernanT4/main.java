@@ -178,7 +178,7 @@ public class main {
                 valorUsuario = reconocerUsuario(nombreUsers);
 
                 //AQUI ABAJO ES EL FACTOR EN DOS PASOS
-                if (valorUsuario >= 0 ) {
+                if (valorUsuario >= 0 & FactorDosPasos()) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
                 } else {
@@ -188,15 +188,20 @@ public class main {
                         String nombre = s.nextLine();
                         System.out.println("Escribe la contraseña que desees añadir");
                         String contrasena = s.nextLine();
-
-                        if (protocoloContrasenas(contrasena,8,8,passwUsers)){
-                            nombreUsers[numeroDeUsersCreados + 1] = s.nextLine();
-                            if (definirTipoDeUsuario() == 1) {
-                                tiposDeUsers[numeroDeUsersCreados + 1] = 1;
-                            } else {
-                                tiposDeUsers[numeroDeUsersCreados + 1] = 0;
+                        if (mandarToken()){
+                            if (protocoloContrasenas(contrasena,8,30,passwUsers)){
+                                nombreUsers[numeroDeUsersCreados + 1] = nombre;
+                                passwUsers[numeroDeUsersCreados + 1] = contrasena;
+                                if (definirTipoDeUsuario() == 1) {
+                                    tiposDeUsers[numeroDeUsersCreados + 1] = 1;
+                                } else {
+                                    tiposDeUsers[numeroDeUsersCreados + 1] = 0;
+                                }
+                            }else{
+                                System.out.println("Tu contraseña no es aceptada por el protocolo de seguridad");
+                                System.out.println("(mínimo 8 caracteres, con minúsculas, mayúsculas, número y algún símbolo como -_.,*+@)");
                             }
-                        }else System.out.println("Tu contraseña no es aceptada por el protocolo de seguridad");
+                        }else System.out.println("La verificación por token no ha sido aceptada");
                     } else {
                         System.out.println("No se ha añadido el usuario");
                     }
@@ -242,9 +247,23 @@ public class main {
                                     contadorEventosCreados--;
                                 } else if (opcionMenuEventoAdmin[1] == 2) {
                                     System.out.println(AMARILLO + NEGRITA + "Escribe el nombre que tendrá el evento:" + RESET);
-                                    evNombre[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    String nombre = s.nextLine();
+                                    if (longitudValida(nombre,10,20)){
+                                        evNombre[opcionMenuEventoAdmin[0]] = nombre;
+                                    }else{
+                                        evNombre[opcionMenuEventoAdmin[0]] = "?";
+                                        System.out.println("No se puede agregar el nombre del evento devido a que no cumple los estandares de longitud");
+                                        System.out.println("Minimo 10 caracteres, máximo 20");
+                                    }
                                     System.out.println(AMARILLO + NEGRITA + "Escribe la descipción que tendrá el evento:"+ RESET);
-                                    evDescripcion[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    String descr = s.nextLine();
+                                    if (longitudValida(descr,10,200)){
+                                        evDescripcion[opcionMenuEventoAdmin[0]] = descr;
+                                    }else {
+                                        evDescripcion[opcionMenuEventoAdmin[0]] = descr;
+                                        System.out.println("No se puede agregar la descripción del evento devido a que no cumple los estandares de longitud");
+                                        System.out.println("Minimo 10 caracteres, máximo 200");
+                                    }
                                     System.out.println(AMARILLO + NEGRITA + "Escribe las categorías que tendrá el evento:"+ RESET);
                                     evDescripcion[opcionMenuEventoAdmin[0]] = s.nextLine();
                                     System.out.println(AMARILLO + NEGRITA + "Escribe la fecha que tendrá el evento:"+ RESET);
@@ -311,7 +330,6 @@ public class main {
                     do {
 
                         int opcionCambioOrg = 0;
-                        int opcionPanelOrg = 0;
                         opcionMenuOrg = menuPrincipalOrg();
                         switch (opcionMenuOrg) {
                             case 1:
@@ -336,9 +354,23 @@ public class main {
                                         if (!eventosActivos[contadorEventosCreados + 1]) {
                                             eventosActivos[contadorEventosCreados + 1] = true;
                                             System.out.println(AMARILLO + NEGRITA + "Escribe el nombre que tendrá el evento:" + RESET);
-                                            evNombre[contadorEventosCreados + 1] = s.nextLine();
+                                            String nombre = s.nextLine();
+                                            if (longitudValida(nombre,10,20)){
+                                                evNombre[contadorEventosCreados + 1] = nombre;
+                                            }else{
+                                                evNombre[contadorEventosCreados + 1] = "?";
+                                                System.out.println("No se puede agregar el nombre del evento devido a que no cumple los estandares de longitud");
+                                                System.out.println("Minimo 10 caracteres, máximo 20");
+                                            }
                                             System.out.println(AMARILLO + NEGRITA + "Escribe la descipción que tendrá el evento:"+ RESET);
-                                            evDescripcion[contadorEventosCreados + 1] = s.nextLine();
+                                            String descr = s.nextLine();
+                                            if (longitudValida(descr,10,200)){
+                                                evDescripcion[contadorEventosCreados + 1] = descr;
+                                            }else {
+                                                evDescripcion[contadorEventosCreados + 1] = descr;
+                                                System.out.println("No se puede agregar la descripción del evento devido a que no cumple los estandares de longitud");
+                                                System.out.println("Minimo 10 caracteres, máximo 200");
+                                            }
                                             System.out.println(AMARILLO + NEGRITA + "Escribe las categorías que tendrá el evento:"+ RESET);
                                             evDescripcion[contadorEventosCreados + 1] = s.nextLine();
                                             System.out.println(AMARILLO + NEGRITA + "Escribe la fecha que tendrá el evento:"+ RESET);
@@ -566,18 +598,6 @@ public class main {
 
         System.out.println(" " + porcentaje + "%");
     }
-
-//    public static boolean[] reordenarArrays(boolean[] array, int evenCreados){
-//        for (int i = 0; i < evenCreados; i++) {
-//            if (array[i] & !array[i+1] & array[i+2]){
-//                boolean aux = array[i];
-//                array[i] = array[i+1];
-//                array[i+1] = aux;
-//                reordenarArrays(array,evenCreados);
-//            }
-//        }
-//        return array;
-//    }
 
 
 }

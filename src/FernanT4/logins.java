@@ -103,6 +103,77 @@ public class logins {
         return codigo.equals(codIntroducido);
     }
 
+
+    public static boolean mandarToken() {
+        String codigo = "";
+        Scanner s = new Scanner(System.in);
+
+        for (int i = 0; i < 10; i++) {
+            int numero = (int) (Math.random() * 20 + 1);
+            if (numero < 10) codigo += numero;
+            else codigo += (char) (numero + 64);
+        }
+
+        String cuerpo = """
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f4f6f8;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .card {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+        .codigo {
+            font-size: 28px;
+            letter-spacing: 6px;
+            font-weight: bold;
+            color: #ff8800;
+            margin: 20px 0;
+        }
+        .footer {
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🔐 Token para crear un nuevo usuario</h2>
+        <p>Usa el siguiente código para crear un nuevo usuario:</p>
+        <div class="codigo">{{CODIGO}}</div>
+        <p>Este código caduca en unos minutos.</p>
+        <div class="footer">
+            Si no has solicitado este código, ignora este mensaje.
+        </div>
+    </div>
+</body>
+</html>
+""";
+
+        cuerpo = cuerpo.replace("{{CODIGO}}", codigo);
+
+        enviarConGMail(
+                "peccicarrilloalejandro@gmail.com",
+                "Código de verificación",
+                cuerpo
+        );
+
+        System.out.println("Introduce el código enviado al gmail");
+        String codIntroducido = s.nextLine().toUpperCase();
+
+        return codigo.equals(codIntroducido);
+    }
+
     public static int reconocerUsuario(String[] nombres) {
         Scanner s = new Scanner(System.in);
         String nombre = s.nextLine();
