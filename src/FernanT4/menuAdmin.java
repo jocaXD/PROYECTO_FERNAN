@@ -1,6 +1,7 @@
 package FernanT4;
 
 import java.util.Scanner;
+import static FernanT4.menuAsistentes.*;
 
 
 public class menuAdmin {
@@ -134,16 +135,30 @@ public class menuAdmin {
      * @return la opcion seleccionada por el usuario.
      *
      */
-    public static String menuEventosAdmin(int numEvCreados, String[] nombreEv) {
+    public static int[] menuEventosAdmin(int numEvCreados, String[] nombreEv, String[] descrEventos, String[][] descripcionEntradas, String[] categoriaEv,String[]fechaEv,String[] horaEv,int[] aforoMax, int[] numIncritos) {
         Scanner s = new Scanner(System.in);
-        System.out.println(GRIS + "SI QUEIRES BORRAR EL EVENTO, AÑADE UNA 'x' AL LADO DEL NUMERO" + RESET);
+        int[] opcion =  new int[2];
+        System.out.println(GRIS + "Selecciona el evento que quieres administrar" + RESET);
         for (int i = 0; i < numEvCreados; i++) {
             System.out.println(i + " - " + nombreEv[i]);
         }
+        opcion[0] = s.nextInt();
 
-        String  opcion = s.nextLine();
-        return opcion;
+        if (opcion[0] < numEvCreados){
+            mostrarInformacionEventos(nombreEv,descrEventos,descripcionEntradas,categoriaEv[opcion[0]],fechaEv[opcion[0]],horaEv[opcion[0]],opcion[0],aforoMax,numIncritos);
+            System.out.println("¿Qué quieres hacer con el evento?");
+            System.out.println("1-Borrarlo");
+            System.out.println("2-Modificarlo");
+            opcion[1] = s.nextInt();
+        }
 
+        if (opcion[1] == 1 | opcion[1] == 2){
+            return opcion;
+        }else{
+            opcion[0] = -1;
+            opcion[1] = -1;
+            return opcion;
+        }
     }
 
     // ========================== MAIN ==========================

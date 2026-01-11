@@ -92,7 +92,7 @@ public class logins {
         cuerpo = cuerpo.replace("{{CODIGO}}", codigo);
 
         enviarConGMail(
-                "llopsan571@g.educaand.es",
+                "peccicarrilloalejandro@gmail.com",
                 "Código de verificación",
                 cuerpo
         );

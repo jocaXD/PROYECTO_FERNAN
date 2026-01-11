@@ -170,6 +170,7 @@ public class main {
 
 
         while (1 == 1) {
+
             boolean usuarioActiv = false;
             //RECONOCER EL USUARIO
             do {
@@ -177,7 +178,7 @@ public class main {
                 valorUsuario = reconocerUsuario(nombreUsers);
 
                 //AQUI ABAJO ES EL FACTOR EN DOS PASOS
-                if (valorUsuario >= 0 & FactorDosPasos()) {
+                if (valorUsuario >= 0 ) {
                     usuarioActiv = true;
                     System.out.println(NEGRITA + "Bienvenido " + AMARILLO + nombreUsers[valorUsuario] + RESET);
                 } else {
@@ -209,10 +210,9 @@ public class main {
                     int opcionCarteraDigitalAdmin = 0;
 
                     int opcionMenuAdmin;
-                    String opcionMenuEventoAdmin = "";
+                    int[] opcionMenuEventoAdmin = {-1,-1};
                     do {
                         //COMPROBANTE DE QUE LOS ARRAYS NO TIENEN NINGUN VALOR NULO EN MITAD
-
 
                         int opcionCambioAdmin = 0;
                         int opcionPanelAdmin = 0;
@@ -220,17 +220,46 @@ public class main {
                         switch (opcionMenuAdmin) {
                             case 1:
                                 opcionPanelAdmin = panelDeControl(bloqueoUsers, nombreUsers, numeroDeUsersCreados);
-                                if (opcionPanelAdmin != numeroDeUsersCreados) {
+                                if (opcionPanelAdmin < numeroDeUsersCreados) {
                                     System.out.println(NEGRITA + "¿Que quiere hacer?" + RESET);
                                     System.out.println("1- Bloquear");
                                     System.out.println("2- Desbloquear");
                                     if (Integer.parseInt(s.nextLine()) == 1) {
-                                        bloqueoUsers[opcionCambioAdmin] = true;
-                                    } else bloqueoUsers[opcionCambioAdmin] = false;
+                                        bloqueoUsers[opcionPanelAdmin] = true;
+                                    } else bloqueoUsers[opcionPanelAdmin] = false;
                                 }
                                 break;
                             case 2:
-                                opcionMenuEventoAdmin = menuEventosAdmin(contadorEventosCreados, evNombre);
+                                opcionMenuEventoAdmin = menuEventosAdmin(contadorEventosCreados,evNombre,evDescripcion,descripcionesEntradasEventos,evCategoria,evFecha,evHora,evAforo,evInscritos);
+                                if (opcionMenuEventoAdmin[1] == 1){
+                                    eventosActivos[opcionMenuEventoAdmin[0]] = false;
+                                    contadorEventosCreados--;
+                                } else if (opcionMenuEventoAdmin[1] == 2) {
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe el nombre que tendrá el evento:" + RESET);
+                                    evNombre[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la descipción que tendrá el evento:"+ RESET);
+                                    evDescripcion[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe las categorías que tendrá el evento:"+ RESET);
+                                    evDescripcion[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la fecha que tendrá el evento:"+ RESET);
+                                    evFecha[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la hora en la que empezará:"+ RESET);
+                                    evHora[opcionMenuEventoAdmin[0]] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe el aforo máximo que tendrá el evento:"+ RESET);
+                                    evAforo[opcionMenuEventoAdmin[0]] = Integer.parseInt(s.nextLine());
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada premium"+ RESET);
+                                    descripcionesEntradasEventos[opcionMenuEventoAdmin[0]][0] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada semipremium"+ RESET);
+                                    descripcionesEntradasEventos[opcionMenuEventoAdmin[0]][1] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe la descripción de la entrada normal"+ RESET);
+                                    descripcionesEntradasEventos[opcionMenuEventoAdmin[0]][2] = s.nextLine();
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada premium"+ RESET);
+                                    evEntradasTodosLosPrecios[opcionMenuEventoAdmin[0]][0] = Integer.parseInt(s.nextLine());
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada semipremium"+ RESET);
+                                    evEntradasTodosLosPrecios[opcionMenuEventoAdmin[0]][1] = Integer.parseInt(s.nextLine());
+                                    System.out.println(AMARILLO + NEGRITA + "Escribe el precio de la entrada normal"+ RESET);
+                                    evEntradasTodosLosPrecios[opcionMenuEventoAdmin[0]][2] = Integer.parseInt(s.nextLine());
+                                }
                                 break;
                             case 3:
                                 opcionCarteraDigitalAdmin = menuCarteraDigitalAdmin(dineroUsers[valorUsuario]);
@@ -525,6 +554,20 @@ public class main {
 
         System.out.println(" " + porcentaje + "%");
     }
+
+//    public static boolean[] reordenarArrays(boolean[] array, int evenCreados){
+//        for (int i = 0; i < evenCreados; i++) {
+//            if (array[i] & !array[i+1] & array[i+2]){
+//                boolean aux = array[i];
+//                array[i] = array[i+1];
+//                array[i+1] = aux;
+//                reordenarArrays(array,evenCreados);
+//            }
+//        }
+//        return array;
+//    }
+
+
 }
 
 
