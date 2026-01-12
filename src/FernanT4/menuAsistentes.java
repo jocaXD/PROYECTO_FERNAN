@@ -58,6 +58,7 @@ public class menuAsistentes {
         System.out.println(GRIS + AZUL + "3" + GRIS + ". Volver" + RESET);
 
         opcion = Integer.parseInt(s.nextLine());
+        if (opcion>3 | opcion<1) opcion = -1;
         return opcion;
     }
 

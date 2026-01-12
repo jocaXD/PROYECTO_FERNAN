@@ -556,7 +556,7 @@ public class main {
                                 dineroUsers[valorUsuario] = retirarSaldoUsers(dineroUsers[valorUsuario]);
                                 opcionCarteraDigitalUsers = 0;
                                 break;
-                            default:
+                            case -1:
                                 System.out.println(ROJO + "Opción no válida..." + RESET);
                         }
 
