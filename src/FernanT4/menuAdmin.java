@@ -12,15 +12,6 @@ public class menuAdmin {
     public static final String GRIS = "\u001B[90m";
     public static final String NARANJA = "\u001B[38;5;208m";
 
-    // Variables para guardar los eventos
-    static boolean ev1 = false;
-    static boolean ev2 = false;
-    static boolean ev3 = false;
-    static boolean ev4 = false;
-    static boolean ev5 = false;
-    static boolean ev6 = false;
-    static boolean ev7 = false;
-    static boolean ev8 = false;
 
     // ======== SALDO DEL USUARIO (CARTERA DIGITAL) ========
     static double saldo = 0.0;

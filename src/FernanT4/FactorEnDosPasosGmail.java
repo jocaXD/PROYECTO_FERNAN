@@ -8,7 +8,10 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class FactorEnDosPasosGmail {
-
+    /**
+     * Tiene todos los enlaces y parámetros para conectarse a los servidores de Gmail y enviar el correo electrónico.
+     *
+     */
     public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
         String remitente = "acarpec@g.educaand.es";
         String clave = "enuj ghcq zfng frlp";

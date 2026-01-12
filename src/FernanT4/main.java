@@ -595,7 +595,10 @@ public class main {
         return a;
     }
 
-
+    /**
+     * Muestra un gráfico para representar gráficamente los usuarios unidos a un evento.
+     *
+     */
     public static void mostrarGraficoAforo(int aforoMaximo, int inscritos) {
 
         if (inscritos > aforoMaximo) {

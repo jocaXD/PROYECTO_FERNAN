@@ -1,7 +1,11 @@
 package FernanT4;
 
 public class Cadenas {
-
+    /**
+     * Comprueba si en la base de datos hay contraseñas iguales a la que has puesto.
+     * @return Returna si la contraseña ya está usada.
+     *
+     */
     public static boolean contrasenasIguales(String c, String[] contrasenasUsuarios) {
         if (c == null || c.length() < 2) return false;
 
@@ -12,7 +16,11 @@ public class Cadenas {
         }
         return true;
     }
-
+    /**
+     * Comprueba que la contraseña sea fuerte.
+     * @return Returna si la contraseña es fuerte.
+     *
+     */
 
     public static boolean contrasenaFuerte(String pass) {
         if (pass == null || pass.length() < 8) return false;
@@ -35,12 +43,22 @@ public class Cadenas {
         else return false;
     }
 
+    /**
+     * Comprueba si la contraseña tiene una logitud valida
+     * @return Returna si la contraseña tiene buena longitud.
+     *
+     */
+
     public static boolean longitudValida(String texto, int min, int max) {
         if (texto == null) return false;
         int l = texto.length();
         return l >= min && l <= max;
     }
-
+    /**
+     * Reune todas las funciones para crear el protocolo de contraseñas
+     * @return Returna si la contraseña cumple todas las normas.
+     *
+     */
     public static boolean protocoloContrasenas(String c, int min, int max, String[] contrasenasUsuarios) {
         if (contrasenasIguales(c,contrasenasUsuarios) && contrasenaFuerte(c) && longitudValida(c, min, max)) {
             return true;

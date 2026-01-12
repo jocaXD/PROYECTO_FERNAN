@@ -10,7 +10,12 @@ public class logins {
     public static final String NARANJA = "\u001B[38;5;208m";
 
 
+    /**
+     * Comprobación de la clave en los usuarios.
+     *
+     * @return Opcion por el usuario.
 
+     */
     public static int pedirClave(String[] passUsers, int valorUsuario) {
         Scanner s = new Scanner(System.in);
         int salida = 0;
@@ -32,6 +37,12 @@ public class logins {
         }
         return salida;
     }
+    /**
+     * Hace la verificación en dos pasos
+     *
+     * @return Returna si la verificación por token ha sido satisfactoria.
+     *
+     */
 
     public static boolean FactorDosPasos() {
         String codigo = "";
@@ -103,7 +114,12 @@ public class logins {
         return codigo.equals(codIntroducido);
     }
 
-
+    /**
+     * Hace la verificación por token.
+     *
+     * @return Returna si la verificación por token ha sido satisfactoria.
+     *
+     */
     public static boolean mandarToken() {
         String codigo = "";
         Scanner s = new Scanner(System.in);

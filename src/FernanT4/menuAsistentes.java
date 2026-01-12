@@ -206,6 +206,12 @@ public class menuAsistentes {
 
     // ========================== MOSTRAR MIS EVENTOS ==========================
     //Muestra los eventos activos
+    /**
+     * Muestra el menú de las acciones que puede elegir el usuario para cambiar los datos de su cuenta.
+     *
+     * @return la opcion seleccionada por el usuario.
+     *
+     */
     public static int[] mostrarEventosUsers(boolean[] eventosActivos, String[] nombresEv,String[] descEv, String[][] descripcionEntradas,String[] categoria, String[] fecha, String[] hora, int eventosCreados, int[][] aforoMaximo, int[][] inscritos, int[][] preciosEntradas) {
         System.out.println(GRIS + "=== MIS EVENTOS ===" + RESET);
         for (int i = 0; i <= eventosCreados; i++) {
@@ -238,6 +244,10 @@ public class menuAsistentes {
         }while(opcion<eventosCreados);
     }
 
+    /**
+     * Muestra los eventos que hay asociados a un evento.
+     *
+     */
     public static void mostrarMisEventosUsers(boolean[][] eventosDeUsuario ,String[] nombresEventos,int  eventosCreados, int valorUsuario) {
         System.out.println(GRIS + "=== MIS EVENTOS ===" + RESET);
         boolean elUsuarioNoTieneEvento = false;
@@ -254,6 +264,12 @@ public class menuAsistentes {
         }
     }
 
+    /**
+     * Muestra el menú de las entradas disponibles para cada evento.
+     *
+     * @return la opcion seleccionada por el usuario.
+     *
+     */
     public static int comprarEntrada(){
         System.out.println(AZUL + NEGRITA + "--Selecciona el tipo de entrada que quieres comprar--" + RESET);
         System.out.println(AZUL + "1- Entrada premium");
@@ -291,7 +307,21 @@ public class menuAsistentes {
         return variableADevolver;
     }
 
-
+    /**
+     *
+     * @param nombreEventos Nombre de todos los eventos que hay
+     * @param descrEventos Descripción de todos los eventos que hay
+     * @param descripcionEntradas Descripcion de todas las entradas para los eventos que hay
+     * @param categoria Categorías de todos los eventos que hay
+     * @param fecha Fechas de todos los eventos que hay
+     * @param hora Horas de todos los eventos que hay
+     * @param valor Valor de elección para saber a qué evento estamos refiriendonos
+     * @param aforoMaximo Aforo máximo de todos los eventos que hay
+     * @param inscritos Nombre de todos los eventos que hay
+     * @param preciosEntradas Precio de todas las entradas
+     *
+     *  Función para mostrar toda la información de un evento seleccionado.
+     */
     public static void mostrarInformacionEventos(String[] nombreEventos,String[] descrEventos,String[][] descripcionEntradas,String categoria, String fecha, String hora,int valor,int[] aforoMaximo, int[] inscritos,int[][] preciosEntradas){
         System.out.println(nombreEventos[valor]);
         System.out.println(descrEventos[valor]);
