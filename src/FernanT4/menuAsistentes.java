@@ -205,7 +205,7 @@ public class menuAsistentes {
 
     // ========================== MOSTRAR MIS EVENTOS ==========================
     //Muestra los eventos activos
-    public static int[] mostrarEventosUsers(boolean[] eventosActivos, String[] nombresEv,String[] descEv, String[][] descripcionEntradas,String[] categoria, String[] fecha, String[] hora, int eventosCreados, int[][] aforoMaximo, int[][] inscritos) {
+    public static int[] mostrarEventosUsers(boolean[] eventosActivos, String[] nombresEv,String[] descEv, String[][] descripcionEntradas,String[] categoria, String[] fecha, String[] hora, int eventosCreados, int[][] aforoMaximo, int[][] inscritos, int[][] preciosEntradas) {
         System.out.println(GRIS + "=== MIS EVENTOS ===" + RESET);
         for (int i = 0; i <= eventosCreados; i++) {
             if (eventosActivos[i]){
@@ -224,7 +224,7 @@ public class menuAsistentes {
             System.out.println("Escribe el numero con el que quieres ver los datos:");
             opcion = Integer.parseInt(s.nextLine());
             if (opcion <= eventosCreados){
-                mostrarInformacionEventos(nombresEv,descEv,descripcionEntradas,categoria[opcion],fecha[opcion],hora[opcion],opcion,aforoMaximo[opcion],inscritos[opcion]);
+                mostrarInformacionEventos(nombresEv,descEv,descripcionEntradas,categoria[opcion],fecha[opcion],hora[opcion],opcion,aforoMaximo[opcion],inscritos[opcion],preciosEntradas);
                 int opcionDeEntrada = comprarEntrada();
                 if (opcionDeEntrada==1 | opcionDeEntrada==2 | opcionDeEntrada==3){
                     opcionesARetornar[0] = opcion;
@@ -291,7 +291,7 @@ public class menuAsistentes {
     }
 
 
-    public static void mostrarInformacionEventos(String[] nombreEventos,String[] descrEventos,String[][] descripcionEntradas,String categoria, String fecha, String hora,int valor,int[] aforoMaximo, int[] inscritos){
+    public static void mostrarInformacionEventos(String[] nombreEventos,String[] descrEventos,String[][] descripcionEntradas,String categoria, String fecha, String hora,int valor,int[] aforoMaximo, int[] inscritos,int[][] preciosEntradas){
         System.out.println(nombreEventos[valor]);
         System.out.println(descrEventos[valor]);
         System.out.println("Categoría: " + categoria);
@@ -300,13 +300,16 @@ public class menuAsistentes {
         System.out.println("--Descripcion de la entrada premium--");
         System.out.println(descripcionEntradas[valor][0]+ "\n");
         System.out.println(aforoMaximo[0] +"/" + inscritos[3]);
+        System.out.println(preciosEntradas[valor][0] + "€");
 
         System.out.println("--Descripcion de la entrada semipremium--");
         System.out.println(descripcionEntradas[valor][1]);
         System.out.println(aforoMaximo[1] +"/" + inscritos[4]);
+        System.out.println(preciosEntradas[valor][1] + "€");
 
         System.out.println("--Descripcion de la entrada normal--");
         System.out.println(descripcionEntradas[valor][2]);
         System.out.println(aforoMaximo[2] +"/" + inscritos[5]);
+        System.out.println(preciosEntradas[valor][2] + "€");
     }
 }

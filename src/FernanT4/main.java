@@ -244,7 +244,7 @@ public class main {
                                 }
                                 break;
                             case 2:
-                                opcionMenuEventoAdmin = menuEventosAdmin(contadorEventosCreados,evNombre,evDescripcion,descripcionesEntradasEventos,evCategoria,evFecha,evHora,evAforo,evInscritos);
+                                opcionMenuEventoAdmin = menuEventosAdmin(contadorEventosCreados,evNombre,evDescripcion,descripcionesEntradasEventos,evCategoria,evFecha,evHora,evAforo,evInscritos,evEntradasTodosLosPrecios);
                                 if (opcionMenuEventoAdmin[1] == 1){
                                     eventosActivos[opcionMenuEventoAdmin[0]] = false;
                                     contadorEventosCreados--;
@@ -517,7 +517,7 @@ public class main {
                                 mostrarMisEventosUsers(evUsers, evNombre, contadorEventosCreados, valorUsuario);
                                 break;
                             case 2:
-                                opcionDeEventoUnirse = mostrarEventosUsers(eventosActivos, evNombre, evDescripcion, descripcionesEntradasEventos, evCategoria, evFecha, evHora, contadorEventosCreados, evEntradasTodas, evEntradasTodas);
+                                opcionDeEventoUnirse = mostrarEventosUsers(eventosActivos, evNombre, evDescripcion, descripcionesEntradasEventos, evCategoria, evFecha, evHora, contadorEventosCreados, evEntradasTodas, evEntradasTodas,evEntradasTodosLosPrecios);
                                 if (opcionDeEventoUnirse[0] != -1 && opcionDeEventoUnirse[1] != -1) {
                                     evUsers[valorUsuario][opcionDeEventoUnirse[0]] = true;
                                     dineroUsers[valorUsuario] -= evEntradasTodosLosPrecios[opcionDeEventoUnirse[0]][opcionDeEventoUnirse[1]];

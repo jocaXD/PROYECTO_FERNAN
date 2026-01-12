@@ -135,7 +135,7 @@ public class menuAdmin {
      * @return la opcion seleccionada por el usuario.
      *
      */
-    public static int[] menuEventosAdmin(int numEvCreados, String[] nombreEv, String[] descrEventos, String[][] descripcionEntradas, String[] categoriaEv,String[]fechaEv,String[] horaEv,int[] aforoMax, int[] numIncritos) {
+    public static int[] menuEventosAdmin(int numEvCreados, String[] nombreEv, String[] descrEventos, String[][] descripcionEntradas, String[] categoriaEv,String[]fechaEv,String[] horaEv,int[] aforoMax, int[] numIncritos, int[][] preciosEntradas) {
         Scanner s = new Scanner(System.in);
         int[] opcion =  new int[2];
         System.out.println(GRIS + "Selecciona el evento que quieres administrar" + RESET);
@@ -145,7 +145,7 @@ public class menuAdmin {
         opcion[0] = s.nextInt();
 
         if (opcion[0] < numEvCreados){
-            mostrarInformacionEventos(nombreEv,descrEventos,descripcionEntradas,categoriaEv[opcion[0]],fechaEv[opcion[0]],horaEv[opcion[0]],opcion[0],aforoMax,numIncritos);
+            mostrarInformacionEventos(nombreEv,descrEventos,descripcionEntradas,categoriaEv[opcion[0]],fechaEv[opcion[0]],horaEv[opcion[0]],opcion[0],aforoMax,numIncritos,preciosEntradas);
             System.out.println("¿Qué quieres hacer con el evento?");
             System.out.println("1-Borrarlo");
             System.out.println("2-Modificarlo");
