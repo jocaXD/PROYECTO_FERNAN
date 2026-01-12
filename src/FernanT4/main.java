@@ -163,11 +163,11 @@ public class main {
                 , {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}, {0,0,0,0,0,0}
         };
 
-        int[][] evEntradasTodosLosPrecios = {{10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {10, 10, 10}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}};
+        int[][] evEntradasTodosLosPrecios = {{100,50,20}, {100,50,20}, {100,50,20}, {100,50,20}, {100,50,20}, {100,50,20}, {100,50,20}, {100,50,20}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}};
 
 
         //dinero en la cuenta de los usuarios
-        double[] dineroUsers = {50, 50, 30, 50, 0, 0, 0, 0, 0, 0};
+        double[] dineroUsers = {100, 100, 100, 100, 0, 0, 0, 0, 0, 0};
 
 
         while (1 == 1) {
@@ -520,6 +520,7 @@ public class main {
                                 opcionDeEventoUnirse = mostrarEventosUsers(eventosActivos, evNombre, evDescripcion, descripcionesEntradasEventos, evCategoria, evFecha, evHora, contadorEventosCreados, evEntradasTodas, evEntradasTodas);
                                 if (opcionDeEventoUnirse[0] != -1 && opcionDeEventoUnirse[1] != -1) {
                                     evUsers[valorUsuario][opcionDeEventoUnirse[0]] = true;
+                                    dineroUsers[valorUsuario] -= evEntradasTodosLosPrecios[opcionDeEventoUnirse[0]][opcionDeEventoUnirse[1]];
                                     evEntradasTodas[opcionDeEventoUnirse[0]][opcionDeEventoUnirse[1] - 1 + 3]++;
                                 }
                                 break;
@@ -601,8 +602,4 @@ public class main {
 
         System.out.println(" " + porcentaje + "%");
     }
-
-
 }
-
-
