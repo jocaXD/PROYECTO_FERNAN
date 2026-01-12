@@ -312,5 +312,10 @@ public class menuAsistentes {
         System.out.println(descripcionEntradas[valor][2]);
         System.out.println(aforoMaximo[2] +"/" + inscritos[5]);
         System.out.println(preciosEntradas[valor][2] + "€");
+
+        int aforoMax = inscritos[0] + inscritos[1] + inscritos[2];
+        int aforoMin = inscritos[3] + inscritos[4] + inscritos[5];
+
+        mostrarGraficoAforo(aforoMax, aforoMin );
     }
 }

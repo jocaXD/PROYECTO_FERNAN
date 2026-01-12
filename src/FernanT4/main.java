@@ -311,6 +311,17 @@ public class main {
                                 break;
                             case 4:
                                 opcionCambioAdmin = configuracionAdmin();
+                                if (opcionCambioAdmin == 1){
+                                    System.out.println("Escribe como se llamará el usuario");
+                                    nombreUsers[valorUsuario] = s.nextLine();
+                                } else if (opcionCambioAdmin == 2) {
+                                    System.out.println("Escribe la nueva contraseña");
+                                    String passw = s.nextLine();
+                                    if (protocoloContrasenas(passw,8,20,passwUsers)){
+                                        System.out.println("Se ha cambiado la constraseña");
+                                        passwUsers[valorUsuario] = passw;
+                                    }else System.out.println("La contraseña no se puede cambiar debido a que viola el protocolo de seguridad");
+                                }
                                 break;
                             case 5:
                                 System.out.println("Cerrando sesión...");
@@ -489,10 +500,15 @@ public class main {
 
                         if (opcionCambioOrg == 1) {
                             System.out.println("Escribe como quieres que se llame este usuario");
-                            nombreUsers[1] = s.nextLine();
+                            nombreUsers[valorUsuario] = s.nextLine();
                         } else if (opcionCambioOrg == 2) {
                             System.out.println("Escribe la contraseña que desees");
-                            passwUsers[1] = s.nextLine();
+                            String passw = s.nextLine();
+                            if (protocoloContrasenas(passw,8,20,passwUsers)){
+                                System.out.println("La constraseña se ha cambiado");
+                                passwUsers[valorUsuario] = passw;
+                            }else System.out.println("La contraseña no se ha podido combiar porque viola el protocolo de seguridad");
+
                         } else if (opcionCambioOrg == 0) {
                         } else System.out.println(ROJO + "IRRECONOCIBLE" + RESET);
 
@@ -535,7 +551,12 @@ public class main {
                                 if (opcionCambioUsers[0].equals("1")) {
                                     nombreUsers[valorUsuario] = opcionCambioUsers[1];
                                 } else if (opcionCambioUsers[0].equals("2")) {
-                                    passwUsers[valorUsuario] = opcionCambioUsers[1];
+                                    String passw = opcionCambioUsers[1];
+                                    if (protocoloContrasenas(passw,8,20,passwUsers)){
+                                        System.out.println("La constraseña se ha cambiado");
+                                        passwUsers[valorUsuario] = passw;
+                                    }else System.out.println("La");
+
                                 }
                                 break;
                             case 6:
@@ -561,12 +582,9 @@ public class main {
                         }
 
                     } while (opcionMenuUsers != 6);
-
-
                     break;
 
                 }
-
             }
         }
     }
@@ -578,7 +596,7 @@ public class main {
     }
 
 
-    public static void mostrarGraficoAforo(String nombreEvento, int aforoMaximo, int inscritos) {
+    public static void mostrarGraficoAforo(int aforoMaximo, int inscritos) {
 
         if (inscritos > aforoMaximo) {
             inscritos = aforoMaximo;
